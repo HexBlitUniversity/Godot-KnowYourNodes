@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkcov6viqatfb"]
+
+[ext_resource type="Texture2D" uid="uid://bb23fcdqmo0va" path="res://Assets/SpaceBG.png" id="2_6sqgn"]
+[ext_resource type="PackedScene" uid="uid://ciiou1vltnpil" path="res://player.tscn" id="2_quqfo"]
+[ext_resource type="PackedScene" uid="uid://di2d37667tlm8" path="res://space_meteor_01.tscn" id="3_a8gby"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nb53s"]
+bounce = 1.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_65o7s"]
+bounce = 0.81
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lujnd"]
+absorbent = true
+
+[node name="Game" type="Node2D"]
+rotation = -0.000224698
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4853, 3701)
+scale = Vector2(5.02039, 6.79086)
+texture = ExtResource("2_6sqgn")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_quqfo")]
+position = Vector2(4368, 4464.98)
+rotation = 0.172323
+max_contacts_reported = 1
+linear_velocity = Vector2(0, 0)
+
+[node name="SpaceMeteor01" parent="." groups=["debris"] instance=ExtResource("3_a8gby")]
+position = Vector2(4158.26, 3307.93)
+mass = 25.0
+physics_material_override = SubResource("PhysicsMaterial_nb53s")
+max_contacts_reported = 1
+
+[node name="SpaceMeteor02" parent="." groups=["debris"] instance=ExtResource("3_a8gby")]
+position = Vector2(5248.87, 5023.18)
+physics_material_override = SubResource("PhysicsMaterial_65o7s")
+max_contacts_reported = 1
+
+[node name="SpaceMeteor03" parent="." groups=["debris"] instance=ExtResource("3_a8gby")]
+position = Vector2(5451.23, 3427.22)
+rotation = -0.00432361
+mass = 50.0
+physics_material_override = SubResource("PhysicsMaterial_lujnd")
+max_contacts_reported = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(4872.08, 4114.09)
+rotation = 0.00090833
+zoom = Vector2(0.3, 0.3)

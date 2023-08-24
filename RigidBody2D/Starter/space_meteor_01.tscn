@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://di2d37667tlm8"]
+
+[ext_resource type="Script" path="res://SpaceMeteor.gd" id="1_hj7rr"]
+[ext_resource type="Texture2D" uid="uid://evi2k7ksmvji" path="res://Assets/spaceMeteors_001.png" id="2_4x4tb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_odbad"]
+radius = 10.8889
+
+[node name="SpaceMeteor01" type="RigidBody2D"]
+position = Vector2(5128.21, 3515.15)
+gravity_scale = 0.0
+contact_monitor = true
+script = ExtResource("1_hj7rr")
+
+[node name="SpaceMeteors001" type="Sprite2D" parent="."]
+scale = Vector2(1.87705, 2.1306)
+texture = ExtResource("2_4x4tb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["debris"]]
+position = Vector2(14.79, 9.8501)
+scale = Vector2(40.0429, -43.1169)
+shape = SubResource("CircleShape2D_odbad")

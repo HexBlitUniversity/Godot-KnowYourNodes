@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://ciiou1vltnpil"]
+
+[ext_resource type="Texture2D" uid="uid://db1b7gcs1go7g" path="res://Assets/spaceShips_006.png" id="1_8l1hp"]
+[ext_resource type="Script" path="res://player.gd" id="1_q6mqr"]
+[ext_resource type="Texture2D" uid="uid://tcb380evse7" path="res://Assets/explosion1.png" id="3_f3q30"]
+[ext_resource type="Texture2D" uid="uid://dye2ev2wxodfh" path="res://Assets/explosion2.png" id="4_e4wno"]
+[ext_resource type="Texture2D" uid="uid://b28h3rosq36io" path="res://Assets/explosion3.png" id="5_0tfl7"]
+[ext_resource type="Texture2D" uid="uid://dwwar3sjemotp" path="res://Assets/explosion4.png" id="6_u74di"]
+[ext_resource type="Texture2D" uid="uid://da0ip1vs1ddt2" path="res://Assets/explosion5.png" id="7_brrok"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0o2wo"]
+size = Vector2(186.494, 139.042)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hs20m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_f3q30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_e4wno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0tfl7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u74di")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_brrok")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+gravity_scale = 0.0
+contact_monitor = true
+linear_velocity = Vector2(0, -50)
+script = ExtResource("1_q6mqr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = -3.14159
+texture = ExtResource("1_8l1hp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.09944e-06, -1.49999)
+scale = Vector2(1.0617, 1.15792)
+shape = SubResource("RectangleShape2D_0o2wo")
+
+[node name="ExplosionAnimation" type="AnimatedSprite2D" parent="."]
+visible = false
+scale = Vector2(2.71224, 2.56083)
+sprite_frames = SubResource("SpriteFrames_hs20m")
