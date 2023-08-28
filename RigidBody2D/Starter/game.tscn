@@ -23,7 +23,6 @@ texture = ExtResource("2_6sqgn")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_quqfo")]
 position = Vector2(4368, 4464.98)
-rotation = 0.172323
 max_contacts_reported = 1
 linear_velocity = Vector2(0, 0)
 
